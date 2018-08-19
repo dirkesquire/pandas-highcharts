@@ -112,7 +112,8 @@ def serialize(df, output_type="javascript", chart_type="default", *args, **kwarg
         output['series'].sort(key=lambda s: s['name'])
 
     def serialize_subtitle(df, output, *args, **kwargs):
-        pass
+        if "subtitle" in kwargs:
+            output["subtitle"] = {"text": kwargs["subtitle"]}
 
     def serialize_title(df, output, *args, **kwargs):
         if "title" in kwargs:
